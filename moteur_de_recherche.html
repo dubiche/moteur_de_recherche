@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moteur de Recherche</title>
+    <script>
+        function searchFunction() {
+            var input, filter, links, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            links = document.getElementsByClassName("searchLink");
+            for (i = 0; i < links.length; i++) {
+                txtValue = links[i].textContent || links[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    links[i].style.display = "";
+                } else {
+                    links[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            font-size: 16px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Recherche d'Outils</h2>
+    <input type="text" id="searchInput" onkeyup="searchFunction()" placeholder="Rechercher un outil...">
+    <ul>
+        <li><a href="#outil1" class="searchLink">Outil 1</a></li>
+        <li><a href="#outil2" class="searchLink">Outil 2</a></li>
+        <li><a href="#outil3" class="searchLink">Outil 3</a></li>
+    </ul>
+</body>
+</html>
